@@ -3,7 +3,6 @@ import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import {
-  Star,
   Shield,
   Verified,
   ThumbsUp,
@@ -21,7 +20,6 @@ const ReviewsSection = () => {
       id: 1,
       name: "Rahul Verma",
       location: "Varanasi",
-      rating: 1,
       verified: true,
       business: "Boat Operators, Assi Ghat",
       comment:
@@ -38,7 +36,6 @@ const ReviewsSection = () => {
       id: 2,
       name: "Sneha Rathi",
       location: "Agra",
-      rating: 2,
       verified: true,
       business: "Taj Mahal Premises",
       comment:
@@ -54,7 +51,6 @@ const ReviewsSection = () => {
       id: 3,
       name: "Ravi Kumar",
       location: "Delhi",
-      rating: 2,
       verified: true,
       business: "Express Travel Agency",
       comment:
@@ -71,7 +67,6 @@ const ReviewsSection = () => {
       id: 5,
       name: "Fatima Khan",
       location: "Manali",
-      rating: 2,
       verified: true,
       business: "Manali Government Hospital",
       comment:
@@ -85,17 +80,6 @@ const ReviewsSection = () => {
         "Escalated to state health authorities. Investigation initiated.",
     },
   ];
-
-  const renderStars = (rating: number) => {
-    return Array.from({ length: 5 }, (_, i) => (
-      <Star
-        key={i}
-        className={`w-4 h-4 ${
-          i < rating ? "text-primary fill-primary" : "text-muted-foreground"
-        }`}
-      />
-    ));
-  };
 
   const getCategoryBadge = (category: string) => {
     switch (category) {
@@ -200,9 +184,8 @@ const ReviewsSection = () => {
                       </div>
 
                       <div className="flex items-center gap-2 mb-2">
-                        <div className="flex items-center">
-                          {renderStars(review.rating)}
-                        </div>
+                        <span className="text-sm text-muted-foreground">
+                        </span>
                         <span className="text-sm text-muted-foreground">
                           • {review.location}
                         </span>
@@ -284,72 +267,7 @@ const ReviewsSection = () => {
 
           {/* Sidebar */}
           <div className="space-y-6">
-            {/* Review Stats */}
-            <Card className="p-6 shadow-card">
-              <h3 className="font-semibold text-lg mb-4">Review Statistics</h3>
-              <div className="space-y-4">
-                <div>
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-sm">5 Stars</span>
-                    <span className="text-sm font-medium">65%</span>
-                  </div>
-                  <div className="w-full bg-muted rounded-full h-2">
-                    <div
-                      className="bg-secondary h-2 rounded-full"
-                      style={{ width: "65%" }}
-                    ></div>
-                  </div>
-                </div>
-                <div>
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-sm">4 Stars</span>
-                    <span className="text-sm font-medium">20%</span>
-                  </div>
-                  <div className="w-full bg-muted rounded-full h-2">
-                    <div
-                      className="bg-primary h-2 rounded-full"
-                      style={{ width: "20%" }}
-                    ></div>
-                  </div>
-                </div>
-                <div>
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-sm">3 Stars</span>
-                    <span className="text-sm font-medium">8%</span>
-                  </div>
-                  <div className="w-full bg-muted rounded-full h-2">
-                    <div
-                      className="bg-accent h-2 rounded-full"
-                      style={{ width: "8%" }}
-                    ></div>
-                  </div>
-                </div>
-                <div>
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-sm">2 Stars</span>
-                    <span className="text-sm font-medium">4%</span>
-                  </div>
-                  <div className="w-full bg-muted rounded-full h-2">
-                    <div
-                      className="bg-primary h-2 rounded-full"
-                      style={{ width: "4%" }}
-                    ></div>
-                  </div>
-                </div>
-                <div>
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-sm">1 Star</span>
-                    <span className="text-sm font-medium">3%</span>
-                  </div>
-                  <div className="w-full bg-muted rounded-full h-2">
-                    <div
-                      className="bg-destructive h-2 rounded-full"
-                      style={{ width: "3%" }}
-                    ></div>
-                  </div>
-                </div>
-              </div>
-            </Card>
+           
 
             {/* Write Review CTA */}
             <Card className="p-6 shadow-card bg-gradient-government">
@@ -391,7 +309,6 @@ const ReviewsSection = () => {
                   </div>
                 </div>
                 <div className="flex items-center gap-3">
-                  <Star className="w-5 h-5 text-primary" />
                   <div className="text-sm">
                     <div className="font-medium">Real Experiences</div>
                     <div className="text-muted-foreground">
